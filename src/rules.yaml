@@ -1,0 +1,36 @@
+dateparser:
+  languages: ["en"]
+  settings:
+    DATE_ORDER: "DMY"
+    PREFER_DAY_OF_MONTH: "first"
+    PREFER_DATES_FROM: "past"
+
+events:
+  Filing:        ["\\b(filed|instituted|presented|lodged)\\b"]
+  Hearing:       ["\\b(hearing|listed|mentioned|called out|next date of hearing|NDH)\\b"]
+  Order:         ["\\border(?:ed)?\\b", "\\bdirections?\\b"]
+  Adjournment:   ["\\badjourn(?:ed|ment)\\b", "\\bdefer(?:red)?\\b"]
+  Notice:        ["\\bnotice\\b", "\\bshow cause\\b"]
+  Bail:          ["\\bbail\\b", "\\banticipatory bail\\b", "\\bregular bail\\b"]
+  Charge:        ["\\bcharges? framed\\b", "\\bframing of charge\\b"]
+  Evidence:      ["\\bevidence\\b", "\\bexamination\\b", "\\bcross[- ]examination\\b"]
+  Judgment:      ["\\bjudg(?:e)?ment\\b", "\\bfinal order\\b", "\\bdisposed\\b", "\\ballowed\\b", "\\bdismissed\\b"]
+  Application:   ["\\bapplication\\b", "\\binterlocutory application\\b", "\\bpetition\\b", "\\bIA\\b"]
+  Service:       ["\\bserved?\\b", "\\bdasti\\b"]
+  Settlement:    ["\\bsettlement\\b", "\\bcompromise\\b", "\\bmediation\\b"]
+  Lease:         ["\\blease\\b", "\\bpatta\\b", "\\bkabuliyat\\b", "\\bunderlease\\b"]
+  Appeal:        ["\\bappeal(?:ed|s)?\\b", "\\bpreferred this appeal\\b"]
+
+date_patterns:
+  - "(?P<d>\\d{1,2})(?:st|nd|rd|th)?\\s+(?P<mon>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*,?\\s+(?P<y>\\d{4})"
+  - "(?P<d>\\d{1,2})[\\-/](?P<m>\\d{1,2})[\\-/](?P<y>\\d{2,4})"
+  - "(?P<y>\\d{4})[\\-/](?P<m>\\d{1,2})[\\-/](?P<d>\\d{1,2})"
+  - "(?P<mon>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\\s+(?P<d>\\d{1,2}),?\\s+(?P<y>\\d{4})"
+
+section_patterns:
+  - "^[A-Z0-9 .()\\-]{6,80}$"
+  - "^(ORDER|JUDGMENT|BACKGROUND|FACTS|PROCEEDINGS|ISSUES|ANALYSIS|CONCLUSION|DECISION|HOLDING)$"
+
+
+sentence_delimiters: [".", "!", "?", ";"]
+line_break_is_boundary: true

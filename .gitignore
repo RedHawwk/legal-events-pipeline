@@ -1,0 +1,19 @@
+# venv
+.venv/
+__pycache__/
+
+# local env & keys
+.env
+
+# build / cache
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+
+# data
+data/out/
+data/samples/
+
+# vscode
+.vscode/
